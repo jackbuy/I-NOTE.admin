@@ -12,7 +12,7 @@ module.exports = {
         config.resolve.alias
         .set('@', resolve('src'))
         .set('_c', resolve('src/components/'))
-        .set('_as', resolve('src/assets/img/'))
+        .set('_as', resolve('src/assets/'))
     },
     // 传递第三方插件选项
     // pluginOptions: {
