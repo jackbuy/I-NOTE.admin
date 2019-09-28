@@ -7,6 +7,7 @@ import {
     Button, Input,
     Select, Option, OptionGroup,
     Table, TableColumn,
+    Form, FormItem,
 } from 'element-ui';
 Vue.use(Button);
 Vue.use(Input);
@@ -15,6 +16,8 @@ Vue.use(Option);
 Vue.use(OptionGroup);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Form);
+Vue.use(FormItem);
 
 Vue.config.productionTip = false;
 
