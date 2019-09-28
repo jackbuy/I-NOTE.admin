@@ -3,6 +3,6 @@
 </template>
 
 <script>
-import '_as/scss/reset.scss';
+// import '_as/scss/reset.scss';
 export default {};
 </script>

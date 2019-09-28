@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-const Layout = () => import(/* webpackChunkName: "about" */ '_c/layout/Layout.vue');
+// const Layout = () => import(/* webpackChunkName: "about" */ '_c/layout/Layout.vue');
 
 Vue.use(Router);
 
@@ -12,7 +12,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Layout,
+      component: Home,
     },
     // {
     //   path: '/about',

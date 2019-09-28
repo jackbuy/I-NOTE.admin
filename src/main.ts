@@ -2,6 +2,19 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+// 按需引入
+import {
+    Button, Input,
+    Select, Option, OptionGroup,
+    Table, TableColumn,
+} from 'element-ui';
+Vue.use(Button);
+Vue.use(Input);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(OptionGroup);
+Vue.use(Table);
+Vue.use(TableColumn);
 
 Vue.config.productionTip = false;
 
