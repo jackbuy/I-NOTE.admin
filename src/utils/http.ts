@@ -21,11 +21,8 @@ axios.interceptors.response.use((config: any): any => {
         if (config.data.code === 200) {
             return Promise.resolve(config.data);
         } else {
-            if (config.data.msg && config.data.code === 500) {
+            if (config.data.msg) {
                 Message.warning({ message: config.data.msg });
-            }
-            if (config.data.code === 401) {
-                localStorage.clear();
             }
             return Promise.reject(config.data);
         }
@@ -33,11 +30,11 @@ axios.interceptors.response.use((config: any): any => {
         Message.warning({message: '数据请求异常！'});
     }
 }, (error: any) => {
-    Message.warning({message: '网络异常！'});
+    Message.warning({message: '数据请求异常！'});
     return Promise.reject(error);
 });
 
-const http = (method: any, url: string, data: any) => {
+const http = (method: any, url: string, data?: any) => {
     return new Promise((resolve, reject) => {
         axios({
             method,
