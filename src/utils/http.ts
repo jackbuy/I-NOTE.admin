@@ -24,6 +24,10 @@ axios.interceptors.response.use((config: any): any => {
             if (config.data.msg) {
                 Message.warning({ message: config.data.msg });
             }
+            if (config.data.code === 401) {
+                localStorage.clear();
+                window.location.reload();
+            }
             return Promise.reject(config.data);
         }
     } else {

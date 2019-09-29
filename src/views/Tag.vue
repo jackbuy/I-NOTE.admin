@@ -57,6 +57,7 @@
         <modal
             :title="modalTitle"
             :visible="visible"
+            width="400px"
             @close="handleClose">
             <el-form
                 label-width="60px">
@@ -64,7 +65,7 @@
                     label="名称：">
                     <el-input
                         v-model="form.title"
-                        placeholder="请输入"></el-input>
+                        placeholder="请输入标签名称"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-button

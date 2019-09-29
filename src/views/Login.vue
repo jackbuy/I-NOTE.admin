@@ -1,21 +1,21 @@
 <template>
     <div class="login">
-        <el-form
-            label-width="60px">
-            <el-form-item
-                label="邮箱">
+        <el-form>
+            <el-form-item>
                 <el-input
                     v-model="form.email"
                     placeholder="邮箱"></el-input>
             </el-form-item>
-            <el-form-item
-                label="密码">
+            <el-form-item>
                 <el-input
                     v-model="form.password"
                     placeholder="密码"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button @click="handleLogin">登录</el-button>
+                <el-button
+                    type="primary"
+                    class="submit"
+                    @click="handleLogin">登录</el-button>
             </el-form-item>
         </el-form>
         
@@ -53,9 +53,12 @@ export default class Login extends Vue {
 
 <style lang="scss">
 .login{
-    width: 400px;
+    width: 300px;
     margin: 80px auto;
     padding: 20px;
     border: 1px solid #f5f5f5;
+    .submit{
+        width: 100%;
+    }
 }
 </style>
