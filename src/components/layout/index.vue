@@ -77,7 +77,7 @@ export default class Layout extends Vue {
         {
             _id: '6',
             title: '系统设置',
-            url: '/user',
+            url: '/setting',
             icon: 'el-icon-s-tools',
         },
     ];

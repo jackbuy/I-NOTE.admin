@@ -7,6 +7,7 @@ const Login = () => import(/* webpackChunkName: "login" */ './views/Login.vue');
 const Home = () => import(/* webpackChunkName: "home" */ './views/Home.vue');
 const Tag = () => import(/* webpackChunkName: "tag" */ './views/Tag.vue');
 const User = () => import(/* webpackChunkName: "user" */ './views/User.vue');
+const Setting = () => import(/* webpackChunkName: "setting" */ './views/Setting.vue');
 
 Vue.use(Router);
 
@@ -39,6 +40,12 @@ export default new Router({
                     name: 'user',
                     component: User,
                     meta: { title: '用户管理' },
+                },
+                {
+                    path: '/setting',
+                    name: 'setting',
+                    component: Setting,
+                    meta: { title: '系统设置' },
                 },
             ],
         },
