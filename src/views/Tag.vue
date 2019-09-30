@@ -6,43 +6,56 @@
             <el-button
                 icon="el-icon-plus"
                 type="primary"
-                @click="handleOpenAdd">添加标签</el-button>
+                @click="handleOpenAdd">顶层标签</el-button>
         </div>
         <div class="tag__content">
             <el-table
                 :data="tableData"
-                style="width: 100%">
+                style="width: 100%"
+                row-key="_id"
+                default-expand-all
+                :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
                 <el-table-column
                     prop="title"
-                    label="标签"
-                    width="180">
+                    label="标签">
                 </el-table-column>
                 <el-table-column
                     prop="articleCount"
                     label="文章数量"
-                    width="180">
+                    width="100">
                 </el-table-column>
                 <el-table-column
                     prop="createUserId.nickname"
-                    label="创建者">
+                    label="创建者"
+                    width="100">
                 </el-table-column>
                 <el-table-column
                     :formatter="formatCreateDate"
                     prop="createTime"
-                    label="创建时间">
+                    label="创建时间"
+                    width="140">
                 </el-table-column>
                 <el-table-column
                     prop="editUserId.nickname"
-                    label="编辑者">
+                    label="编辑者"
+                    width="140">
                 </el-table-column>
                 <el-table-column
                     :formatter="formatEditDate"
                     prop="createTime"
-                    label="编辑时间">
+                    label="编辑时间"
+                    width="140">
                 </el-table-column>
                 <el-table-column
-                    width="180">
+                    label="操作"
+                    width="300">
                     <template slot-scope="scope">
+                        <el-button
+                            icon="el-icon-plus"
+                            @click="handleOpenAdd(scope.row, 'same')">同级</el-button>
+                        <el-button
+                            icon="el-icon-plus"
+                            @click="handleOpenAdd(scope.row, 'children')">子级</el-button>
                         <el-button
                             icon="el-icon-edit"
                             @click="handleOpenEdit(scope.row)"></el-button>
@@ -112,16 +125,12 @@ export default class Tag extends Vue {
     }
 
     private created() {
-        this.getList();
+        this.getTagList();
     }
 
-    private getList() {
-        const params: any = {
-            currentPage: 1,
-            pageSize: 10,
-        };
+    private getTagList() {
         this.loading = true;
-        api.tagQuery(params).then((res: any) => {
+        api.tagQuery().then((res: any) => {
             this.tableData = res.data;
             this.loading = false;
         }).catch(() => {
@@ -133,10 +142,18 @@ export default class Tag extends Vue {
         this.visible = false;
     }
 
-    private handleOpenAdd() {
+    private handleOpenAdd(row: any, type: string) {
+        this.form = {};
+        if (row) {
+            const { _id, parentId } = row;
+            if (type === 'children') {
+                this.form.parentId = _id;
+            } else {
+                this.form.parentId = parentId;
+            }
+        }
         this.visible = true;
         this.modalType = 'add';
-        this.form = {};
     }
 
     private handleOpenEdit(row: any) {
@@ -150,9 +167,10 @@ export default class Tag extends Vue {
     }
 
     private handleSave() {
-        const { title } = this.form;
+        const { title, parentId } = this.form;
         const params: any = {
             title,
+            parentId,
         };
         if (this.modalType === 'edit') {
             params.tagId = this.activeId;
@@ -162,7 +180,7 @@ export default class Tag extends Vue {
         api[apiStr](params).then((res: any) => {
             this.loading = false;
             this.handleClose();
-            this.getList();
+            this.getTagList();
         }).catch(() => {
             this.loading = false;
         });
@@ -173,7 +191,7 @@ export default class Tag extends Vue {
             confirmButtonText: '确定',
             cancelButtonText: '取消',
             type: 'warning',
-            confirmButtonClass: 'el-button--danger'
+            confirmButtonClass: 'el-button--danger',
         }).then(() => {
             const { _id } = row;
             this.loading = true;
@@ -181,9 +199,9 @@ export default class Tag extends Vue {
                 this.loading = false;
                 this.$message({
                     message: '删除成功！',
-                    type: 'warning'
+                    type: 'success',
                 });
-                this.getList();
+                this.getTagList();
             }).catch(() => {
                 this.loading = false;
             });
@@ -192,3 +210,11 @@ export default class Tag extends Vue {
 
 }
 </script>
+
+<style lang="scss">
+    .tag{
+        &__header{
+            margin-bottom: 10px;
+        }
+    }
+</style>

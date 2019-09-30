@@ -53,3 +53,10 @@ a:hover {text-decoration:none;}
 a {text-decoration:none;}
 // IE6,7焦点点状线去除
 a:focus,*:focus {outline:none;}
+
+// 全部标签启用盒子模型（兼容IE8+）
+*,*:before,*:after{
+    box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
