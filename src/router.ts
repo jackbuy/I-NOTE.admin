@@ -21,14 +21,14 @@ export default new Router({
             children: [
                 {
                     path: '',
-                    redirect: '/home',
+                    redirect: '/tag',
                 },
-                {
-                    path: '/home',
-                    name: 'home',
-                    component: Home,
-                    meta: { title: '首页' },
-                },
+                // {
+                //     path: '/home',
+                //     name: 'home',
+                //     component: Home,
+                //     meta: { title: '首页' },
+                // },
                 {
                     path: '/tag',
                     name: 'tag',

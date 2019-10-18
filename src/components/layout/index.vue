@@ -38,12 +38,12 @@ import api from '@/utils/api';
 export default class Layout extends Vue {
     private userInfo: any = {};
     private sideData: any = [
-        {
-            _id: '0',
-            title: '数据统计',
-            url: '/home',
-            icon: 'el-icon-s-data',
-        },
+        // {
+        //     _id: '0',
+        //     title: '数据统计',
+        //     url: '/home',
+        //     icon: 'el-icon-s-data',
+        // },
         {
             _id: '1',
             title: '标签管理',
@@ -74,12 +74,12 @@ export default class Layout extends Vue {
         //     url: '/user',
         //     icon: 'el-icon-s-claim',
         // },
-        {
-            _id: '6',
-            title: '系统设置',
-            url: '/setting',
-            icon: 'el-icon-s-tools',
-        },
+        // {
+        //     _id: '6',
+        //     title: '系统设置',
+        //     url: '/setting',
+        //     icon: 'el-icon-s-tools',
+        // },
     ];
 
     get path() {
@@ -90,13 +90,13 @@ export default class Layout extends Vue {
         this.getUserInfo();
     }
 
-    private handleRouter(url) {
+    private handleRouter(url: string) {
         this.$router.push(url);
     }
 
     // 获取用户信息
     private getUserInfo() {
-        api.userInfo().then((res) => {
+        api.userInfo().then((res: any) => {
             this.userInfo = res.data;
         });
     }

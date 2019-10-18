@@ -5,7 +5,7 @@ export default {
     // 用户登录
     userLogin: (params: any) => http('post', `${apiBaseUrl}/user/login`, params),
     // 用户信息
-    userInfo: (params: any) => http('post', `${apiBaseUrl}/user/userInfo`, params),
+    userInfo: () => http('post', `${apiBaseUrl}/user/userInfo`),
     // 用户列表
     userQuery: (params: any) => http('post', `${apiBaseUrl}/user/query`, params),
 

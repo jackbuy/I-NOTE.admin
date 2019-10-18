@@ -1,11 +1,19 @@
 <template>
-    <div>
+    <div
+        v-loading="loading"
+        class="user">
         <el-table
             :data="listData"
             style="width: 100%">
             <el-table-column
                 prop="nickname"
                 label="昵称">
+            </el-table-column>
+            <el-table-column
+                :formatter="formatLevel"
+                prop="level"
+                label="等级"
+                width="100">
             </el-table-column>
             <el-table-column
                 prop="articleCount"
@@ -88,6 +96,11 @@ export default class User extends Vue {
     private formatLastSignAtDate(row: any) {
         const { lastSignAt } = row;
         return utils.formatTime(lastSignAt);
+    }
+
+    private formatLevel(row: any) {
+        const { level } = row;
+        return level === 0 ? '会员' : '管理员';
     }
 }
 </script>

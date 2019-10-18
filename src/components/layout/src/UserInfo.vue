@@ -24,7 +24,7 @@ export default class Userinfo extends Vue {
     private userInfo: any;
 
     get userImg() {
-        if (this.userInfo) {
+        if (this.userInfo && this.userInfo.avatar) {
             return `${apiBaseUrl}/${this.userInfo.avatar}`;
         }
     }
