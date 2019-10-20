@@ -41,7 +41,7 @@ export default class ActionMenu extends Vue {
             confirmButtonText: '确定',
             cancelButtonText: '取消',
             type: 'warning',
-            confirmButtonClass: 'el-button--danger',
+            confirmButtonClass: 'el-button--danger'
         }).then(() => {
             this.$router.push('/login');
         }).catch(() => {});

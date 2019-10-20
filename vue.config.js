@@ -4,7 +4,7 @@ const resolve = dir => path.join(__dirname, dir)
 
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
-    ? '/production-sub-path/'
+    ? '/' // build时的路劲，且要写成绝对路劲
     : '/',
     outputDir: 'dist',
     // 配置路径别名

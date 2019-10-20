@@ -3,11 +3,11 @@
         <div class="user-info">
             <div class="img">
                 <i v-if="!userImg" class="el-icon-user"></i>
-                <img v-else :src="userImg" alt="">
+                <div :style="{'backgroundImage': `url(${userImg})`}"></div>
             </div>
             <div class="info">
                 <div class="name">{{ userName }}</div>
-                <div class="role">超级管理员</div>
+                <div class="role">{{ userLevel }}</div>
             </div>
         </div>
         <slot></slot>
@@ -34,6 +34,12 @@ export default class Userinfo extends Vue {
             return this.userInfo.nickname;
         }
     }
+
+    get userLevel() {
+        if (this.userInfo) {
+            return this.userInfo.level === 1000 ? '管理员' : '超级管理员';
+        }
+    }
 }
 </script>
 
@@ -58,8 +64,12 @@ export default class Userinfo extends Vue {
                 color: #aaa;
                 vertical-align: middle;
             }
-            img{
-                width: 100%;
+            div{
+                width: inherit;
+                height: inherit;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
             }
         }
         .info{

@@ -48,7 +48,7 @@ export default class Login extends Vue {
     };
 
     private handleLogin() {
-        this.$refs['form'].validate((valid: any) => {
+        (this.$refs.form as any).validate((valid: boolean) => {
             if (valid) {
                 const { email, password } = this.form;
                 const params: any = {
@@ -61,7 +61,7 @@ export default class Login extends Vue {
                     const { token, userId } = res.data;
                     localStorage.setItem('token', token);
                     localStorage.setItem('userId', userId);
-                    axios.defaults.headers.common['token'] = token;
+                    axios.defaults.headers.common.token = token;
                     setTimeout(() => {
                         this.$router.push('/');
                     });
