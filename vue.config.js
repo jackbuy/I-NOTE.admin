@@ -5,7 +5,7 @@ const resolve = dir => path.join(__dirname, dir)
 module.exports = {
     // baseUrl vue-cli 3.3 已废弃
     publicPath: process.env.NODE_ENV === 'production'
-    ? './' // build时的路劲，根据实际情况配置是否需要绝对路劲
+    ? '/' // build时的路劲，绝对路劲
     : '/',
     outputDir: 'dist',
     // 配置路径别名
