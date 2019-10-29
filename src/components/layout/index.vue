@@ -46,9 +46,15 @@ export default class Layout extends Vue {
         // },
         {
             _id: '1',
-            title: '标签管理',
+            title: '话题管理',
             url: '/tag',
             icon: 'el-icon-s-management',
+        },
+        {
+            _id: '11',
+            title: '文件管理',
+            url: '/file',
+            icon: 'el-icon-folder',
         },
         {
             _id: '2',

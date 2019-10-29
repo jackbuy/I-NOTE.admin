@@ -17,4 +17,7 @@ export default {
     tagEdit: (params: any) => http('post', `${apiBaseUrl}/tag/edit`, params),
     // Tag删除
     tagDelete: (tagId: string) => http('delete', `${apiBaseUrl}/tag/delete/${tagId}`),
+
+    // 图片列表
+    photoQuery: () => http('post', `${apiBaseUrl}/photo/query`),
 };

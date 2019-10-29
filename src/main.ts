@@ -21,6 +21,7 @@ import {
     Header,
     Aside,
     Main,
+    Image
 } from 'element-ui';
 
 Vue.use(Container);
@@ -37,6 +38,7 @@ Vue.use(TableColumn);
 Vue.use(Form);
 Vue.use(FormItem);
 Vue.use(Dialog);
+Vue.use(Image);
 Vue.use(Loading.directive);
 
 Vue.prototype.$ELEMENT = { size: 'mini', zIndex: 3000 };

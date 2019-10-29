@@ -6,7 +6,7 @@
             <el-button
                 icon="el-icon-plus"
                 type="primary"
-                @click="handleOpenAdd">顶层标签</el-button>
+                @click="handleOpenAdd">顶层话题</el-button>
         </div>
         <div class="tag__content">
             <el-table
@@ -17,7 +17,7 @@
                 :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
                 <el-table-column
                     prop="title"
-                    label="标签">
+                    label="话题">
                 </el-table-column>
                 <el-table-column
                     prop="articleCount"

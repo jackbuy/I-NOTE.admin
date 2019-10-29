@@ -6,6 +6,7 @@ const Page404 = () => import(/* webpackChunkName: "404" */ './views/Page404.vue'
 const Login = () => import(/* webpackChunkName: "login" */ './views/Login.vue');
 const Home = () => import(/* webpackChunkName: "home" */ './views/Home.vue');
 const Tag = () => import(/* webpackChunkName: "tag" */ './views/Tag.vue');
+const FileManage = () => import(/* webpackChunkName: "tag" */ './views/FileManage.vue');
 const User = () => import(/* webpackChunkName: "user" */ './views/User.vue');
 const Setting = () => import(/* webpackChunkName: "setting" */ './views/Setting.vue');
 
@@ -33,7 +34,13 @@ export default new Router({
                     path: '/tag',
                     name: 'tag',
                     component: Tag,
-                    meta: { title: '标签管理' },
+                    meta: { title: '话题管理' },
+                },
+                {
+                    path: '/file',
+                    name: 'file',
+                    component: FileManage,
+                    meta: { title: '文件管理' },
                 },
                 {
                     path: '/user',
