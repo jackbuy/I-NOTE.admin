@@ -18,6 +18,6 @@ export default {
     // Tag删除
     tagDelete: (tagId: string) => http('delete', `${apiBaseUrl}/tag/delete/${tagId}`),
 
-    // 图片列表
-    photoQuery: () => http('post', `${apiBaseUrl}/photo/query`),
+    // 文件管理列表
+    fileQuery: () => http('post', `${apiBaseUrl}/file/query`),
 };

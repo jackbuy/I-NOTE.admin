@@ -6,7 +6,7 @@
                 :data="tableData"
                 style="width: 100%">
                 <el-table-column
-                    label="图片"
+                    label="文件"
                     width="100">
                     <template slot-scope="scope">
                         <el-image
@@ -37,15 +37,14 @@
                     width="160">
                 </el-table-column>
                 <el-table-column
-                    label="文章"
-                    width="200">
-                    <template slot-scope="scope">
-                        <span>{{scope.row.articleId.title}}</span>
-                    </template>
+                    :formatter="formatType"
+                    prop="type"
+                    label="来源"
+                    width="100">
                 </el-table-column>
                 <el-table-column
                     prop="userId.nickname"
-                    label="上传者"
+                    label="用户"
                     width="150">
                 </el-table-column>
             </el-table>
@@ -71,7 +70,7 @@ export default class Photo extends Vue {
 
     private getTagList() {
         this.loading = true;
-        api.photoQuery().then((res: any) => {
+        api.fileQuery().then((res: any) => {
             this.tableData = res.data;
             this.loading = false;
         }).catch(() => {
@@ -88,6 +87,13 @@ export default class Photo extends Vue {
         const { size } = row;
         const s = (size / 1024).toFixed(2);
         return `${s} KB`;
+    }
+
+    private formatType(row: any) {
+        const { type } = row;
+        if (type === '0') { return '文章内容'; }
+        if (type === '1') { return '专题封面'; }
+        if (type === '2') { return '用户头像'; }
     }
 }
 </script>
