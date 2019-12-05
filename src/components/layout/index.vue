@@ -51,6 +51,12 @@ export default class Layout extends Vue {
             icon: 'el-icon-s-management',
         },
         {
+            _id: '4',
+            title: '广告管理',
+            url: '/ad',
+            icon: 'el-icon-s-platform',
+        },
+        {
             _id: '11',
             title: '文件管理',
             url: '/file',
@@ -67,12 +73,6 @@ export default class Layout extends Vue {
         //     title: '消息管理',
         //     url: '/user',
         //     icon: 'el-icon-message-solid',
-        // },
-        // {
-        //     _id: '4',
-        //     title: '广告管理',
-        //     url: '/user',
-        //     icon: 'el-icon-s-platform',
         // },
         // {
         //     _id: '5',
@@ -144,6 +144,6 @@ export default class Layout extends Vue {
         right: 0;
         bottom: 0;
         background: #f5f5f5;
-        padding: 10px;
+        padding: 0px;
     }
 </style>

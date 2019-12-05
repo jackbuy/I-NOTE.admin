@@ -20,4 +20,14 @@ export default {
 
     // 文件管理列表
     fileQuery: () => http('post', `${apiBaseUrl}/file/query`),
+
+    // 广告管理
+    adCateQuery: (params: any) => http('post', `${apiBaseUrl}/ad/cate/query`, params),
+    adCateAdd: (params: any) => http('post', `${apiBaseUrl}/ad/cate/add`, params),
+    adCateEdit: (params: any) => http('post', `${apiBaseUrl}/ad/cate/edit`, params),
+    adCateDelete: (cateId: string) => http('delete', `${apiBaseUrl}/ad/cate/delete/${cateId}`),
+    adListQuery: (params: any) => http('post', `${apiBaseUrl}/ad/query`, params),
+    adAdd: (params: any) => http('post', `${apiBaseUrl}/ad/add`, params),
+    adEdit: (params: any) => http('post', `${apiBaseUrl}/ad/edit`, params),
+    adDelete: (adId: string) => http('delete', `${apiBaseUrl}/ad/delete/${adId}`),
 };

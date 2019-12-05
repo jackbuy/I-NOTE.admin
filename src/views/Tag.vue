@@ -2,7 +2,7 @@
     <div
         v-loading="loading"
         class="tag">
-        <div class="tag__header">
+        <div v-if="tableData.length === 0" class="tag__header">
             <el-button
                 icon="el-icon-plus"
                 type="primary"
