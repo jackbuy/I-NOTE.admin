@@ -340,7 +340,7 @@ export default class User extends Vue {
         }
         &__cate{
             width: 240px;
-            background: #eee;
+            background: #fff;
             /* padding: 10px; */
             &-header{
                 padding: 10px;

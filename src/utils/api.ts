@@ -30,4 +30,9 @@ export default {
     adAdd: (params: any) => http('post', `${apiBaseUrl}/ad/add`, params),
     adEdit: (params: any) => http('post', `${apiBaseUrl}/ad/edit`, params),
     adDelete: (adId: string) => http('delete', `${apiBaseUrl}/ad/delete/${adId}`),
+
+    // 系统设置
+    systemAdd: (params: any) => http('post', `${apiBaseUrl}/system/add`, params),
+    systemEdit: (params: any) => http('post', `${apiBaseUrl}/system/edit`, params),
+    systemDetail: () => http('get', `${apiBaseUrl}/system/detail`),
 };

@@ -51,11 +51,13 @@ router.beforeEach((to, from, next) => {
     NProgress.start();
     if (to.path === '/login') {
         localStorage.clear();
-        next();
+        return next();
     }
-    const userData = localStorage.getItem('token');
-    if ((!userData && to.path !== '/login')) {
-        next({ path: '/login' });
+    if (to.path === '/install') {
+        return next();
+    }
+    if ((!localStorage.getItem('token') && to.path !== '/login')) {
+        return next({ path: '/login' });
     }
     next();
 });

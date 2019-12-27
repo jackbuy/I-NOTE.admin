@@ -21,10 +21,10 @@
                     :loading="loading"
                     class="submit"
                     type="primary"
+                    native-type="submit"
                     @click="handleLogin">登录</el-button>
             </el-form-item>
         </el-form>
-        
     </div>
 </template>
 

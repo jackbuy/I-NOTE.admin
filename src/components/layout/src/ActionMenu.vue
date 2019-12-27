@@ -44,6 +44,7 @@ export default class ActionMenu extends Vue {
             confirmButtonClass: 'el-button--danger'
         }).then(() => {
             this.$router.push('/login');
+            localStorage.clear();
         }).catch(() => {});
     }
 }

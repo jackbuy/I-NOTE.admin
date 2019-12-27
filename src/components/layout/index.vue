@@ -80,12 +80,12 @@ export default class Layout extends Vue {
         //     url: '/user',
         //     icon: 'el-icon-s-claim',
         // },
-        // {
-        //     _id: '6',
-        //     title: '系统设置',
-        //     url: '/setting',
-        //     icon: 'el-icon-s-tools',
-        // },
+        {
+            _id: '6',
+            title: '系统设置',
+            url: '/setting',
+            icon: 'el-icon-s-tools',
+        },
     ];
 
     get path() {
@@ -104,6 +104,10 @@ export default class Layout extends Vue {
     private getUserInfo() {
         api.userInfo().then((res: any) => {
             this.userInfo = res.data;
+            if (!res.data) {
+                this.$router.push('/login');
+                localStorage.clear();
+            }
         });
     }
 }
