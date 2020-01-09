@@ -17,6 +17,7 @@
                 </ul>
             </el-aside>
             <el-main>
+                <breadcrumb></breadcrumb>
                 <router-view></router-view>
             </el-main>
         </el-container>
@@ -27,12 +28,14 @@
 import { Component, Vue } from 'vue-property-decorator';
 import UserInfo from './src/UserInfo.vue';
 import ActionMenu from './src/ActionMenu.vue';
+import Breadcrumb from './src/Breadcrumb.vue';
 import api from '@/utils/api';
 
 @Component({
     components: {
         UserInfo,
         ActionMenu,
+        Breadcrumb,
     },
 })
 export default class Layout extends Vue {
@@ -74,12 +77,12 @@ export default class Layout extends Vue {
         //     url: '/user',
         //     icon: 'el-icon-message-solid',
         // },
-        // {
-        //     _id: '5',
-        //     title: '友情链接',
-        //     url: '/user',
-        //     icon: 'el-icon-s-claim',
-        // },
+        {
+            _id: '5',
+            title: '友情链接',
+            url: '/link',
+            icon: 'el-icon-s-claim',
+        },
         {
             _id: '6',
             title: '系统设置',
@@ -147,7 +150,6 @@ export default class Layout extends Vue {
         top: 0px;
         right: 0;
         bottom: 0;
-        background: #f5f5f5;
         padding: 0px;
     }
 </style>

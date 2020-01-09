@@ -31,6 +31,12 @@ export default {
     adEdit: (params: any) => http('post', `${apiBaseUrl}/ad/edit`, params),
     adDelete: (adId: string) => http('delete', `${apiBaseUrl}/ad/delete/${adId}`),
 
+    // 友情链接
+    linkQuery: (params: any) => http('post', `${apiBaseUrl}/link/query`, params),
+    linkAdd: (params: any) => http('post', `${apiBaseUrl}/link/add`, params),
+    linkEdit: (params: any) => http('post', `${apiBaseUrl}/link/edit`, params),
+    linkDelete: (linkId: string) => http('delete', `${apiBaseUrl}/link/delete/${linkId}`),
+
     // 系统设置
     systemAdd: (params: any) => http('post', `${apiBaseUrl}/system/add`, params),
     systemEdit: (params: any) => http('post', `${apiBaseUrl}/system/edit`, params),

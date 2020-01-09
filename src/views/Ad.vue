@@ -21,7 +21,7 @@
                 </ul>
             </div>
         </div>
-        <div class="ad__list">
+        <div v-if="activeCateId" class="ad__list">
             <div class="ad__list-header">
                 <el-button
                     icon="el-icon-plus"

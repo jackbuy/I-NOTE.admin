@@ -27,7 +27,10 @@ export default class Modal extends Vue {
     })
     private width: string;
 
-    @Prop(Boolean)
+    @Prop({
+        type: Boolean,
+        default: true
+    })
     private visible: boolean;
 
     @Emit('close')

@@ -21,7 +21,9 @@ import {
     Header,
     Aside,
     Main,
-    Image
+    Image,
+    Breadcrumb,
+    BreadcrumbItem
 } from 'element-ui';
 
 Vue.use(Container);
@@ -40,6 +42,8 @@ Vue.use(FormItem);
 Vue.use(Dialog);
 Vue.use(Image);
 Vue.use(Loading.directive);
+Vue.use(Breadcrumb);
+Vue.use(BreadcrumbItem);
 
 Vue.prototype.$ELEMENT = { size: 'mini', zIndex: 3000 };
 Vue.prototype.$message = Message;

@@ -1,9 +1,14 @@
 <template>
     <div class="login">
+        <div class="login__title">
+            <img src="@/assets/images/logo.jpg" alt="">
+            后台管理系统
+        </div>
         <el-form
             ref="form"
             :rules="rules"
-            :model="form">
+            :model="form"
+            @submit.native.prevent>
             <el-form-item
                 prop="email">
                 <el-input
@@ -14,6 +19,7 @@
                 prop="password">
                 <el-input
                     v-model="form.password"
+                    type="password"
                     placeholder="密码"></el-input>
             </el-form-item>
             <el-form-item>
@@ -76,12 +82,29 @@ export default class Login extends Vue {
 
 <style lang="scss">
 .login{
-    width: 300px;
-    margin: 80px auto;
-    padding: 20px;
+    width: 400px;
+    margin: 120px auto;
+    padding: 30px;
     border: 1px solid #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+    background: #fff;
     .submit{
         width: 100%;
+    }
+    &__title{
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        color: #787878;
+        margin-bottom: 30px;
+        img{
+            width: 20px;
+            height: 20px;
+            vertical-align: top;
+            display: inline-block;
+            margin-right: 5px;
+        }
     }
 }
 </style>

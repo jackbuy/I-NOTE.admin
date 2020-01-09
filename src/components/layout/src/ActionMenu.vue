@@ -1,6 +1,8 @@
 <template>
     <div class="action-menu">
-        <span title="首页">
+        <span
+            title="首页"
+            @click="handleHome">
             <i class="el-icon-s-home"></i>
         </span>
         <span
@@ -28,11 +30,18 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class ActionMenu extends Vue {
 
     // 展开与收起
-    private handleToggle() {}
+    private handleToggle() {
+        this.$message('开发中...');
+    }
 
     // 刷新
     private handleReoad() {
         window.location.reload();
+    }
+
+    // 首页
+    private handleHome() {
+        this.$router.push('/home');
     }
 
     // 退出登录
@@ -54,15 +63,15 @@ export default class ActionMenu extends Vue {
 .action-menu{
     color: #999;
     border-top: 1px solid #151515;
-    text-align: center;
     padding: 10px 0;
+    display: flex;
     span{
-        display: inline-block;
+        flex: 1;
         text-align: center;
         vertical-align: middle;
         cursor: pointer;
         padding: 10px;
-        margin: 0 9px;
+        margin: 0 5px;
         transition: all 0.3s;
         border-radius: 5px;
         font-size: 16px;
